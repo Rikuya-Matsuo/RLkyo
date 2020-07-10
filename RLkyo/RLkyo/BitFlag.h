@@ -30,7 +30,7 @@ public:
 	friend class BitFlag;
 
 private:
-	uint8_t GetMaxIndex() const;
+	//uint8_t GetMaxIndex() const;
 
 	Type mFlags;
 };
@@ -50,27 +50,18 @@ BitFlag<Type>::~BitFlag()
 template<typename Type>
 bool BitFlag<Type>::Get(uint8_t index) const
 {
-	const uint8_t maxIndex = GetMaxIndex();
-
-	if (index < GetMaxIndex())
-	{
-		return mFlags & GetMask(index);
-	}
-
-	return false;
+	return mFlags & GetMask(index);
 }
 
 template<typename Type>
 void BitFlag<Type>::Set(uint8_t index, bool value)
 {
-	if (index < GetMaxIndex())
-	{
-		value ?
-			mFlags |= GetMask(index) :
-			mFlags &= ~GetMask(index);
-	}
+	value ?
+		mFlags |= GetMask(index) :
+		mFlags &= ~GetMask(index);
 }
 
+/*
 template<typename Type>
 inline uint8_t BitFlag<Type>::GetMaxIndex() const
 {
@@ -101,6 +92,7 @@ inline uint8_t BitFlag<Type>::GetMaxIndex() const
 	// ƒ‹[ƒv“à‚Ås‚«‰ß‚¬‚½•ª‚ğ–ß‚µ‚Äreturn
 	return (bit -= CHAR_BIT);
 }
+*/
 
 template<typename Type>
 template<typename RhsType>

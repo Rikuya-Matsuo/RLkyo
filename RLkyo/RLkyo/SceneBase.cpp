@@ -10,3 +10,7 @@ SceneBase::SceneBase()
 SceneBase::~SceneBase()
 {
 }
+
+void SceneBase::Update()
+{
+}

@@ -14,6 +14,11 @@ public:
 
 	void Loop(class SceneBase * firstScene);
 
+	void Finish();
+
+	// デルタタイム取得
+	float GetDeltaTime() const { return mDeltaTime; }
+
 private:
 	Game();
 
@@ -34,6 +39,9 @@ private:
 
 	// 現在のシーンへのポインタ
 	class SceneBase * mCurrentScene;
+
+	// デルタタイムの計算
+	void CalculateDeltaTime();
 };
 
 #define GAME_CLASS Game::GetInstance()

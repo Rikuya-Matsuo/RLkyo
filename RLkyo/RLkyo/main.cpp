@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Game.h"
+#include "SceneBase.h"
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
@@ -19,7 +20,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//グラフィック描画先を裏画面にセット
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	GAME_CLASS.Loop(nullptr);
+	SceneBase * firstScene = nullptr;
+	GAME_CLASS.Loop(firstScene);
+
+	GAME_CLASS.Finish();
 
 	return 0;
 }
